@@ -1,0 +1,8 @@
+total 4
+drwxr-xr-x 1 AzureAD+BachTran 4096 0 Jul 12 15:42 ./
+drwxr-xr-x 1 AzureAD+BachTran 4096 0 Jul 12 15:27 ../
+-rw-r--r-- 1 AzureAD+BachTran 4096 0 Jul 12 15:28 cat.html
+drwxr-xr-x 1 AzureAD+BachTran 4096 0 Jul 12 15:28 folder-b/
+drwxr-xr-x 1 AzureAD+BachTran 4096 0 Jul 12 15:29 folder-c/
+-rw-r--r-- 1 AzureAD+BachTran 4096 0 Jul 12 15:44 ls-output.txt
+Hello World
