@@ -2,7 +2,7 @@ package com.revature;
 
 public class Stack<E> {
 	
-	private int length;
+	private int size;
 	
 	private Node<E> top;
 	
@@ -14,27 +14,27 @@ public class Stack<E> {
 	private void push(Node<E> node) {
 		node.setNext(top);
 		top = node;
-		length++;
+		size++;
 	}
 	
 	public E pop() {
-		if (length == 0) throw new NoElementException();
+		if (size == 0) throw new NoElementException();
 		
 		Node<E> poppedElement = top; // get the current top element to pop off
 		top = top.getNext(); // set the new top element to be the second to the top
 		poppedElement.setNext(null); // for the popped element, set the next reference to null
-		length--;
+		size--;
 		return poppedElement.getData(); // return the popped element
 	}
 	
 	public E peek() {
-		if (length == 0) throw new NoElementException();
+		if (size == 0) throw new NoElementException();
 		
 		return top.getData();
 	}
 	
-	public int length() {
-		return this.length;
+	public int size() {
+		return this.size;
 	}
 	
 }

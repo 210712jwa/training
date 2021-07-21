@@ -41,7 +41,7 @@ public class Application {
 		System.out.println(stackOfStrings.pop()); // pop off 'third string'
 		System.out.println(stackOfStrings.pop()); // pop off 'second string'
 		
-		System.out.println(stackOfStrings.length());
+		System.out.println(stackOfStrings.size());
 		
 		System.out.println(stackOfStrings.pop()); // pop off 'first string'
 //		System.out.println(stackOfStrings.peek());
