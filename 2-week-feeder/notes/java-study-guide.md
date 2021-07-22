@@ -1,0 +1,390 @@
+# Study Guide
+Topics Covered: Java
+
+Review the material based on the bullet points here. Also make sure to review the various demos and content that we have covered so that you can actually speak not only about the concepts at a high level, but also about details if necessary. 
+
+Know how to switch between short answers and detailed answers. For example, if asked about the four pillars of OOP, provide as much detail as possible. If they ask a more specific question, then think about whether to elaborate or just keep it short.
+
+Also be able to provide overall reasons of `why` something is done or why certain features are available, such as what problems they will solve.
+
+# Topics
+- Intro to Java
+    - High level (What is Java?) (What are the benefits?) (What is OOP?)
+    - Benefits of Java
+        - Automatic memory management (garbage collection)
+            - Objects can be garbage collected if there is no reference variable pointing to that object
+        - Platform independence (Write once, run anywhere)
+            - We write our source code
+            - We can then compile it into bytecode
+            - From there, we have various JVMs for different operating systems that can execute this bytecode
+        - Rich open source community
+            - There is plenty of code already written and available for us to use (different classes, frameworks, libraries)
+        - Extensive Runtime Library (JRE)
+            - Java has a lot of built-in classes already available for us
+                - String class
+                - ArrayList class
+                - Collection interface
+                - etc.
+                - System class
+                    - System.out.println()
+                - Whatever classes we have used that we did not create ourselves so far in Week A and Week B
+        - C-based (therefore has similar syntax to C and also C++, etc.)
+            - so it's fairly easy to learn
+    - Characteristics
+        - Compiled language (sometimes considered hybrid between compiled/interpreted)
+            - Compile to bytecode
+            - Interpret bytecode w/ JVM
+        - Strongly typed
+            - Variables have a specific type
+            - You also can't change the type of a variable
+        - Object oriented
+            - Based around classes
+            - Classes are the blueprints for objects
+    - JDK, JRE, JVM
+        - JDK: Java Development Kit
+            - If you are a developer, this is what you need
+                - Why? Because it has the compiler + debugger, etc.
+                - The compiler is definitely the most important
+            - Includes the JRE + JVM
+        - JRE: Java Runtime Environment
+            - If you are a regular consumer that is just running Java programs, this is what you need
+            - Provides the runtime libraries + also includes the JVM
+                - Runtime libraries: all of the built-in classes in Java
+        - JVM: Java Virtual Machine
+            - Executes bytecode
+                - Bytecode is produced by the compiler
+            - Helps us achieve platform independence
+                - Many different OS specific JVMs
+    - Variables
+        - Primitive variables (8 primitive types)
+            - byte (1 byte = 8 bits)
+            - short (2 bytes = 16 bits)
+            - char (2 bytes = 16 bits)
+            - int (4 bytes = 32 bits)
+            - long (8 bytes = 64 bits)
+            - float (4 bytes = 32 bits)
+            - double (8 bytes = 64 bits)
+            - boolean (JVM-dependent in size)
+        - Reference Variables
+        - Upcasting v. Downcasting
+            - Upcasting: going from more specific to less specific
+                - Casting from child to parent
+                - ex. Dog d = new Dog();
+                - Animal a = d; 
+                - Animal is less specific than Dog
+                    - A Dog is a more specific type of Animal
+                - "safe" operation, because a Dog is always an Animal
+            - Downcasting: going from less specific to more specific
+                - Casting from parent to child
+                - ex. Animal a = new Dog();
+                - Dog d = (Dog) a;
+                - Dog is more specific than Animal
+                - "unsafe" operation, because an Animal is not always a Dog
+                    - if the a variable were pointing to a Cat and I tried to downcast to a Dog, this would give me a ClassCastException
+                    - (Dog) a would only work if a were actually pointing to a Dog object
+            - For primitives: narrowing v. widening conversions
+                - widening: going from a narrower datatype to a wider datatype
+                    - ex. char c = 'a';
+                    - long l = c;
+                    - float f = l;
+                    - "safe" operation, so we don't need to explicitly cast
+                - narrowing: going from a wider datatype to a narrower datatype
+                    - ex. float f = 10.5f;
+                    - long l = (long) f;
+                    - "unsafe" operation, so we need to explicitly cast
+    - Access Modifiers (most restrictive to least restrictive)
+        - private: accessible from the same class only
+        - default: accessible from the same package only
+        - protected: accessible from the same package only + any classes outside of that package that are a subclass
+        - public: anywhere
+    - Non-access modifiers
+        - static: the property or method belongs to the class itself, and are also shared among all instances
+        - final
+            - variables: cannot change the value of a variable after it has already been initialized
+            - methods: cannot override the method 
+            - classes: cannot extend the class
+        - abstract
+            - if you put this keyword on a class, it becomes an abstract class
+            - putting them on methods makes the method abstract
+                - abstract methods can only be in abstract classes or interfaces
+        - synchronized: used w/ multi-threading to prevent multiple threads from accessing a certain block of code at the same time
+        - Other non-access modifiers
+            - volatile
+            - strictfp
+            - native
+            - transient
+    - Variable Scopes
+        - static (global/class)
+            - variables are accessible from a class itself
+        - instance
+            - variables are accessible from an object
+            - instance methods can also access these variables
+        - method
+            - variables defined inside a method
+        - block
+            - if statements, for loops, while loops, etc.
+    - Packages
+        - Import
+        - Static import
+            - A way to import static properties or static methods from a class
+            - That way, we don't need to reference <classname>.<static property/method>
+    - Main method syntax
+        - `public static void main(String[] args)`
+        - What the main method is actually for
+            - It serves as the initial point of execution for our Java program
+    - Memory Management
+        - Garbage collection
+        - Stack & Heap
+            - Stack: not to be confused with the data structure
+                - Where all of our variables defined inside our methods are being stored
+            - Heap contains all of our objects
+                - It also contains the string pool
+                    - This is where string literals are stored
+    - Constructors
+        - Default constructor
+            - Is only provided if we have no constructor defined
+            - Has no arguments
+            - Looks like `public MyClass() { super(); }`
+            - As soon as we define any other constructor, this is not provided. (So if we want a no-args constructor if we have defined a parameterized constructor, we would need to provide it ourselves)
+        - No-args
+        - Parameterized
+        - Constructor Chaining
+            - `this(...)`: used to invoke other overloaded constructors in the same class
+            - often used to prevent having to write duplicate code across different overloaded constructors
+            - `super(...)`: used to invoke the parent constructor in the parent class
+                - This always happens behind the scenes
+                    - If we don't provide `super(...)`, the compiler will automatically insert this as the first line in our constructor (unless this() is being used for overloaded constructor chaining)
+    - Object class
+        - Every class inherits from this class
+            - It is the parent, grandparent, great grandparent, great-great grandparent, etc. of every class
+        - Important methods:
+            - toString(): by default, prints the <classname>@<hashed memory address>
+                - If we override this method, can be used to print out useful information about the object (for example, its properties)
+            - equals(Object o): by default, is the same as == (which will compare the location that the two reference variables are pointing to)
+                - If we override this method, we are 99% doing so in order to compare the properties instead of the location. So they could be two separate objects, but be equal to each other if they have the same equivalent properties
+            - hashCode(): used to generate some sort of hashCode based on a hash function
+                - hash function: a function that produces output that can be an infinite number of inputs
+                    - basic example, f(x) = x mod 2; if f(x) = 1, we could have a infinite number of odd numbers that produce the output of 1
+                - The general requirement of hashCode:
+                    1. If two objects return true for the .equals(Object o) method, the hashcodes MUST BE THE SAME
+                    2. If the hashcodes are the same, it is not necessary for the objects to be equal according to the .equals(Object o) method.
+                    - Because of these two requirements, whenever you override the .equals method, you need to also simulataneously override the .hashCode method, so that the hashcode is based upon the properties of the object just like the .equals method would be
+            - finalize(): this method will be called by the garbage collector when an object is being garbage collected
+                - Often we override this method to do some cleanup operations
+            - Other methods
+                - clone()
+                - multithreading methods
+                    - wait()
+                    - notify()
+                    - notifyAll()
+    - Strings
+        - Immutable
+            - This means we cannot change the value of a String object once it is constructed
+        - String API methods
+            - startsWith
+            - endsWith
+            - length
+            - substring
+            - concat
+            - String methods that look like they are modifying a String (such as concat) are not actually doing so. They actually return an entirely new String object because Strings are immutable
+                - ex. String s = "hello";
+                - s = s.concat("world");
+        - Leverage the String Pool for literals
+            - But if we construct a String object through any of the String methods or using a constructor (new String(new char[] {'a', 'b', 'c'})), it will be stored not in the String pool, but in the regular part of the heap
+    - StringBuffer & StringBuilder
+        - StringBuffer: thread-safe version of StringBuilder
+            - SLOWER than StringBuilder because of the additional checks to see if only one thread is accessing it at a time
+        - StringBuilder: non-thread-safe
+            - FAST when it comes to performing operations
+        - We would use StringBuffer and StringBuilder if we wanted to iteratively construct out a String, because if you constantly want to change values, Strings are immutable, therefore if you perform String concatenation, you are actually creating a new String object every time
+    - Control flow statements
+        - If/else
+        - Switch
+        - For
+        - Enhanced for loop (for-each)
+            - Arrays and anything that is an Iterable can utilize this
+                - For example, an LinkedList is an Iterable
+        - While loop
+        - Do-while loop
+    - Operators
+        - Increment & Decrement (++, --)
+            - Pre v. Post
+                - (++x v. x++)
+                - ++x evalutes the expression after adding 1
+                - x++ evaluates the expression before adding 1
+        - Ternary operator
+            - Allows us to have 2 different expressions in which 1 can be chosen based on a boolean condition
+            - (condition) ? <expression if true> : <expression if false>;
+        - Logical operators
+            - Short circuiting: will only evaluate both sides of the operation if actually required
+                - OR (||): if true on the left side, we don't need to evaluate the right side
+                - AND (&&): if false on the left side, we don't need to evaluate the right side
+            - Non-short circuiting
+                - &
+                - |
+    - Wrapper Classes
+        - Object versions of the primitives
+        - These objects have an internal primitive value
+            - So the objects "wrap" around this primitive
+        - Immutable
+        - Autoboxing and Unboxing
+            - Autoboxing: automatic conversion from primitive to object
+            - Unboxing: automatic conversion from object to primitive
+    - Arrays
+        - fixed in length from the time of instantiation
+        - Contiguous in memory
+        - indexed
+        - O(1) access to elements when providing an index
+            - That is possible due to the contiguous nature of the memory
+            - So we can just take the starting memory address and calculate the memory address of a certain index
+        - Can store 1 type only
+    - Varargs
+        - ... operator
+            - ex. public static double addNums(double... nums) {
+                // code here
+            }
+        - the vararg parameter is treated as an array (ex. nums is a double array)
+        - can invoke method with varying numbers of doubles
+    - Annotations
+        - @Override: helps to ensure that we are actually overriding a method
+        - @FunctionalInterface: helps to ensure that the interface we are creating is actually a functional interface
+        - Provide metadata to whatever is being annotated
+        - Often used w/ the Reflection API (built into Java) that allows us to do some really cool stuff with frameworks (such as Hibernate or Spring)
+    - 4 Pillars of OOP: A-PIE acronym
+        - Abstraction: providing a contract of what behaviors concrete implementations should have (hiding implementation details, just focusing on what behaviors should actually be there)
+            - Abstract classes
+                - Are like regular classes, except
+                    - they cannot be instantiated
+                    - can contain abstract methods
+                - ACs can have constructors
+                    - Even though we can't instantiate an AC, the child class will have a super(...) call inside of its constructors
+            - Interfaces
+            - Know about the difference between the two
+        - Polymorphism
+            - Method overloading
+                - "Compile-time polymorphism"
+                    - What method you actually want to execute is essentially determined at compile-time
+                    - The compiler treats overloaded methods are totally different methods
+                - It is only to the developer that they can "look the same". The only similarity is having the same method name
+                - Because overloaded methods have the same name, in order to differentiate between the methods, we need to 
+                    - Have different types of parameters and/or number of parameters
+            - Method overriding
+                - "Runtime polymorphism"
+                - example: We can have a reference variable such as Animal a point to Dog objects or Cat objects. What type of object this reference variable points to can change during runtime
+                - The JVM figures out at runtime what method to use depending on the object type the reference variable is pointing to 
+                - So, if Animal were pointing to a Dog, makeNoise() would be different than when it is pointing to a Cat
+                - Overridden methods must have
+                    - The same name as the method in the parent class
+                    - The same exact parameters as the method in the parent class
+                    - The return type must be a covariant type
+            - Covariance
+                - When referring to the requirement of overriding methods' return types having to be covariant, we're basically saying that the return type needs to be the same, or a subclass of that return type
+                    - let's say I am overriding a parent method, public Animal getAnimal()
+                    - the overriding method has to have a type that is either Animal or a subclass of animal
+                    - so public Dog getAnimal() would be valid, because Dog is a subclass of Animal
+        - Inheritance
+            - IS-A relationship
+            - We inherit visible properties and methods from the parent class
+                - By visible I mean visibility based on access modifiers
+            - Subclasses are more specific versions of the parent class
+                - ex. a Dog is a specific type of Animal
+            - You can ONLY extend 1 class
+            - But you can implement multiple interfaces
+            - Classes and interfaces form inheritance hierarchies
+        - Encapsulation
+            - Exposing only what is necessary
+            - Modularizing code into a single unit
+            - Typically we will have private properties
+            - Getters/Setters
+                - Setters might have input validation to ensure that values are only set to what we would consider "valid"
+    - Exceptions & Exception handling
+        - Keywords
+            - make sure you know the difference between throw and throws
+            - throw: propagates the exception down the call stack until it is handled somewhere with a try-catch block
+                - `Exception e = new Exception();`
+                - `throw e`
+                - OR
+                - `throw new Exception();`
+            - throws: declaring that a method COULD potentially throw a checked exception
+            - try
+            - catch
+                - When having multiple catch blocks, make sure that more specific exceptions are listed first
+                - So, for example, catch(Exception e) should go last, because it is the least specific Exception
+            - finally
+                - This block will always execute unless `System.exit(...)` is invoked OR the JVM crashes
+        - Class Hierarchy
+            - Throwable
+                - Exception: Anything that extends Exception directly is a checked exception
+                    - IOException
+                    - ClassNotFoundException
+                    - any custom classes that extend Exception
+                    - RuntimeException: Anything that extends RuntimeException is an unchecked exception
+                        - ArithmeticException
+                        - NullPointerException
+                        - IllegalArgumentException
+                        - ClassCastException
+                        - any custom classes that extend RuntimeException
+                - Error: you can catch and handle errors, but typically this shouldn't be done because errors typically mean that something really bad happened w/ the running of the program
+                    - StackOverflowError
+                    - OutOfMemoryError
+        - Checked v. Unchecked Exceptions
+            - Checked exceptions are required to be handled w/ try-catch, or if you want to pass the responsibility to the method calling the current method, using the `throws` keyword
+            - Unchecked exceptions do not need to be handled or declared w/ the `throws` keyword, but typically you do want to handle them
+                - If you don't handle your exceptions, it will pass them onto the JVM after fully propagating down the call stack, and then terminate your program
+        - All exceptions occur at RUNTIME
+            - Whether they are checked exceptions (which extend Exception) or they are unchecked exceptions (which extend RuntimeException)
+        - Know how to create custom exceptions
+            - extend Exception if you want to make a checked exception
+            - extend RuntimeException if you want to make an unchecked exception
+    - Collections API
+        - The Collections API is a group of built-in classes, interfaces, etc. that provide data structures for developers to make use of
+        - Collections Hierarchy
+            - Iterable interface
+                - Collection interface
+                    - List interface
+                        - Lists allow you to access elements based on an index and are ordered according to when they were added
+                        - LinkedList class
+                        - ArrayList class
+                        - Know the difference between LinkedLists and ArrayLists
+                            - LinkedList: data is structured in the form of nodes
+                                - Nodes contain the data as well as link(s) to other nodes
+                                - The LinkedList implementation in Java is doubly-linked
+                            - ArrayList: data is structured in an array
+                    - Queue interface
+                        - Queues behave like a line. So just think of what we have in real life
+                        - LinkedList class
+                        - PriorityQueue class
+                        - Difference between LinkedList Queues v. PriorityQueues
+                            - LinkedList: First-in-first-out (FIFO)
+                            - PriorityQueue: Uses natural ordering of elements to determine who can "skip the line"
+                                - For example, the natural ordering of Strings is alphabetical ordering
+                    - Set interface
+                        - Sets are data structures that contain no index and cannot contain duplicates
+                        - HashSet class
+                        - TreeSet class
+                        - Difference between HashSet v. TreeSet
+                            - HashSet: no ordering of elements
+                            - TreeSet: elements are ordered according to their natural ordering
+                                - For example, the natural ordering of Strings is alphabetical
+            - Map (separate from the hierarchy, but still considered a Collection)
+                - HashMap
+                - TreeMap
+            - If you're wondering about why I'm not including Stack here, the Stack class is not really commonly used nowadays for making use of a stack data structure
+                - Instead we would use a Double ended queue
+                    - This comes from the Deque interface
+                        - addFirst(E e)
+                        - removeFirst()
+                        - peekFirst()
+        - Collections class v. Collection interface
+            - You might be asked, what is the difference between Collections and Collection?
+                - When somebody asks this, they are referring to the utility class called Collections and the interface called Collection
+            - Collections: a class that contains useful static methods that we might use w/ our various Collection objects
+                - for example, sorting or doing a binary search on a list
+            - Collection: the top-most Collection related interface
+    - Generics
+        - Allow us to have parameterized types
+        - This means that we can have non-fixed types for our return types, parameter types, etc. inside a class
+        - Generics are commonly used when working w/ Collections
+            - The reason being that we want to be able to specify different types of objects we want stored in a Collection
+        - Generics do not work with primitive types
+            - This is one the big reasons we need to utilize wrapper classes/types when we want to store primitive information in our Collections
