@@ -1,0 +1,15 @@
+27 Jul 2021 - 12:03:56.726 [main] INFO  com.revature.Demo - Hello there from Demo 10 something else
+27 Jul 2021 - 12:03:56.739 [main] WARN  com.revature.Demo - Warn message
+27 Jul 2021 - 12:03:56.740 [main] ERROR com.revature.Demo - Error message
+27 Jul 2021 - 12:05:18.380 [main] DEBUG com.revature.Demo - Debug message
+27 Jul 2021 - 12:05:18.390 [main] INFO  com.revature.Demo - Hello there from Demo 10 something else
+27 Jul 2021 - 12:05:18.394 [main] WARN  com.revature.Demo - Warn message
+27 Jul 2021 - 12:05:18.395 [main] ERROR com.revature.Demo - Error message
+27 Jul 2021 - 12:05:44.055 [main] TRACE com.revature.Demo - Trace message
+27 Jul 2021 - 12:05:44.068 [main] DEBUG com.revature.Demo - Debug message
+27 Jul 2021 - 12:05:44.068 [main] INFO  com.revature.Demo - Hello there from Demo 10 something else
+27 Jul 2021 - 12:05:44.072 [main] WARN  com.revature.Demo - Warn message
+27 Jul 2021 - 12:05:44.072 [main] ERROR com.revature.Demo - Error message
+27 Jul 2021 - 12:06:14.422 [main] INFO  com.revature.Demo - Hello there from Demo 10 something else
+27 Jul 2021 - 12:06:14.434 [main] WARN  com.revature.Demo - Warn message
+27 Jul 2021 - 12:06:14.434 [main] ERROR com.revature.Demo - Error message
