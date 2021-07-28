@@ -20,7 +20,8 @@ CREATE TABLE employee (
 	first_name VARCHAR(255) NOT NULL CHECK(LENGTH(first_name) > 0),
 	last_name VARCHAR(255) NOT NULL CHECK(LENGTH(last_name) > 0),
 	salary DOUBLE NOT NULL CHECK(salary > 0),
-	supervisor INTEGER -- ,
+	department VARCHAR(50) NOT NULL,
+	supervisor INTEGER
 	-- CONSTRAINT `supervisor_foreign_key` FOREIGN KEY (supervisor) REFERENCES employee (id)
 );
 
@@ -29,13 +30,13 @@ ALTER TABLE employee
 	FOREIGN KEY (supervisor) REFERENCES employee(id);
 
 -- Inserting some data
-INSERT INTO employee (first_name, last_name, salary)
-VALUES ('Bach', 'Tran', 1000000);
+INSERT INTO employee (first_name, last_name, salary, department)
+VALUES ('Bach', 'Tran', 1000000, 'C-Suite');
 
-INSERT INTO employee (first_name, last_name, salary, supervisor)
+INSERT INTO employee (first_name, last_name, salary, supervisor, department)
 VALUES 
-('John', 'Doe', 400000, 1),
-('Jane', 'Doe', 500000, 1);
+('John', 'Doe', 400000, 1, 'C-Suite'),
+('Jane', 'Doe', 500000, 1, 'C-Suite');
 
 
 -- Creating phone_number table
@@ -74,7 +75,7 @@ SELECT *
 FROM phone_number;
 
 -- JOIN Example
-SELECT e.id AS somerandomcolumnname, e.first_name, e.last_name, pn.number
+SELECT e.id AS employee_id, e.first_name, e.last_name, pn.id AS phone_number_id, pn.number
 FROM phone_number pn 
 INNER JOIN employee e
 ON pn.employee_id = e.id;
@@ -126,9 +127,111 @@ FROM (
 	FROM employee
 ) AS sub1;
 
+-- Adding more employees
+INSERT INTO employee
+(first_name, last_name, salary, department, supervisor)
+VALUES
+('Marika', 'Beorhtsige', 100000, 'IT', 3),
+('Lutfi', 'Mikkjal', 70000, 'HR', 2),
+('Karolis', 'Hameed', 65000, 'HR', 5),
+('Johann', 'Vlasi', 85000, 'IT', 3);
+
+-- GROUP BY: used to separate records into different groups, based on these records sharing a common value for a specified column
+SELECT department, COUNT(*)
+FROM employee e
+GROUP BY e.department;
+
+-- The most common reason we create these groups using GROUP BY is to utilize aggregate functions to produce some useful statistics about these groups
+-- For example, we can get the average salary of each department
+SELECT emp.department, AVG(emp.salary)
+FROM employee emp 
+GROUP BY emp.department;
+
+-- HAVING: similar to WHERE, but it is used AFTER the GROUP BY clause in order to filter based on the established groups
+SELECT e.department, AVG(e.salary)
+FROM employee e 
+GROUP BY e.department
+HAVING AVG(salary) < 100000;
+-- The query above only displays the departments and their average salaries, if the average salary of that department is less than 100k
+-- Therefore, the C-Suite department is not included, since they make way more
+
 -- WHERE v. HAVING
--- GROUP BY
+-- WHERE filters out records before we even partition records into their respective groups
+-- HAVING goes after GROUP BY, which means that it is used to filter out after having already grouped
 
+/*
+ * Set Operations
+ */
+-- Think of Set operations as basically operating on 2 different result sets that have the same number and type of columns 
 
+DROP TABLE IF EXISTS one;
+DROP TABLE IF EXISTS two;
 
+CREATE TABLE one (
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	col_one INTEGER,
+	col_two INTEGER
+);
 
+CREATE TABLE two (
+	id INTEGER PRIMARY KEY,
+	one INTEGER,
+	two INTEGER
+);
+
+INSERT INTO one (col_one, col_two) VALUES (1, 1), (2, 2);
+INSERT INTO two VALUES (1, 1, 1), (2, 1, 3);
+
+SELECT *
+FROM one;
+
+SELECT *
+FROM two;
+
+-- UNION does not keep duplicate values
+-- We have a common record of (1, 1, 1) in both RESULT SETS
+-- It only keeps one
+-- So UNION will produce a result set containing unique rows only
+SELECT *
+FROM one 
+UNION 
+SELECT *
+FROM two;
+
+-- UNION ALL DOES keep duplicate values
+SELECT *
+FROM one 
+UNION ALL
+SELECT *
+FROM two;
+
+-- INTERSECT will retain a duplicate row
+-- This is basically used to see what is common between two result sets
+SELECT *
+FROM one 
+INTERSECT 
+SELECT *
+FROM two;
+
+-- EXCEPT will subtract out elements from the first result set that also exist in the second result set 
+SELECT *
+FROM one
+EXCEPT 
+SELECT *
+FROM two;
+
+/*
+ * Scalar and aggregate functions
+ * 
+ * Scalar functions act on individual rows
+ * For example, CONCAT, LENGTH, LOWER, TRIM, SIN, COS, TAN, UPPER, etc.
+ * 
+ * Based on the number of records you have, that's the number of outputs you will receive in your result set
+ * 
+ * Aggregate functions act on groups
+ * For example, AVG, SUM, MAX, MIN, COUNT
+ * 
+ * Based on the number of groups you have, that's the number of outputs you will receive in your result set
+ * GROUP BY is used in conjunction w/ aggregate functions in order to segregate data into groups that the
+ * aggregate function can act on.
+ */
