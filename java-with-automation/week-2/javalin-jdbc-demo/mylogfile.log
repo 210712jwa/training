@@ -1,0 +1,109 @@
+29 Jul 2021 - 15:10:40.154 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+29 Jul 2021 - 15:10:40.185 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1034ms to org.eclipse.jetty.util.log.Slf4jLog
+29 Jul 2021 - 15:10:40.188 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+29 Jul 2021 - 15:10:41.149 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+29 Jul 2021 - 15:10:41.149 [main] INFO  io.javalin.Javalin - Javalin started in 962ms \o/
+29 Jul 2021 - 15:14:39.418 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+29 Jul 2021 - 15:14:39.457 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @997ms to org.eclipse.jetty.util.log.Slf4jLog
+29 Jul 2021 - 15:14:39.461 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+29 Jul 2021 - 15:14:40.390 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+29 Jul 2021 - 15:14:40.390 [main] INFO  io.javalin.Javalin - Javalin started in 931ms \o/
+29 Jul 2021 - 15:15:12.631 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+29 Jul 2021 - 15:15:12.661 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @932ms to org.eclipse.jetty.util.log.Slf4jLog
+29 Jul 2021 - 15:15:12.663 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+29 Jul 2021 - 15:15:13.543 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+29 Jul 2021 - 15:15:13.543 [main] INFO  io.javalin.Javalin - Javalin started in 881ms \o/
+29 Jul 2021 - 15:42:58.178 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+29 Jul 2021 - 15:42:58.212 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1125ms to org.eclipse.jetty.util.log.Slf4jLog
+29 Jul 2021 - 15:42:58.217 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+29 Jul 2021 - 15:42:59.156 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+29 Jul 2021 - 15:42:59.157 [main] INFO  io.javalin.Javalin - Javalin started in 944ms \o/
+29 Jul 2021 - 15:43:22.642 [qtp561247961-19] WARN  io.javalin.Javalin - Uncaught exception
+com.revature.exception.ShipNotFoundException: Ship with id 10 was not found
+	at com.revature.service.ShipService.getShipById(ShipService.java:43)
+	at com.revature.controller.ShipController.lambda$1(ShipController.java:29)
+	at io.javalin.core.security.SecurityUtil.noopAccessManager(SecurityUtil.kt:23)
+	at io.javalin.http.JavalinServlet$addHandler$protectedHandler$1.handle(JavalinServlet.kt:128)
+	at io.javalin.http.JavalinServlet$service$2$1.invoke(JavalinServlet.kt:45)
+	at io.javalin.http.JavalinServlet$service$2$1.invoke(JavalinServlet.kt:24)
+	at io.javalin.http.JavalinServlet$service$1.invoke(JavalinServlet.kt:136)
+	at io.javalin.http.JavalinServlet$service$2.invoke(JavalinServlet.kt:40)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:81)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.websocket.JavalinWsServlet.service(JavalinWsServlet.kt:51)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.core.JavalinServer$start$wsAndHttpHandler$1.doHandle(JavalinServer.kt:49)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:179)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:388)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:633)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:380)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:386)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+29 Jul 2021 - 15:43:44.404 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+29 Jul 2021 - 15:43:44.429 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1387ms to org.eclipse.jetty.util.log.Slf4jLog
+29 Jul 2021 - 15:43:44.432 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+29 Jul 2021 - 15:43:45.278 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+29 Jul 2021 - 15:43:45.278 [main] INFO  io.javalin.Javalin - Javalin started in 848ms \o/
