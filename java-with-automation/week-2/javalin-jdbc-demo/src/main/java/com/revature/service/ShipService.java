@@ -51,7 +51,15 @@ public class ShipService {
 		}
 	}
 	
-	public Ship addShip(AddOrEditShipDTO ship) throws DatabaseException {
+	public Ship addShip(AddOrEditShipDTO ship) throws DatabaseException, BadParameterException {
+		if (ship.getName().trim().equals("")) {
+			throw new BadParameterException("Ship name cannot be blank");
+		}
+		
+		if (ship.getAge() < 0) {
+			throw new BadParameterException("Ship age cannot be less than 0");
+		}
+		
 		try {
 			Ship addedShip = shipDao.addShip(ship);
 			
@@ -61,9 +69,11 @@ public class ShipService {
 		}
 	}
 	
-	public Ship editShip(int shipId, AddOrEditShipDTO ship) throws DatabaseException, ShipNotFoundException {
+	public Ship editShip(String stringId, AddOrEditShipDTO ship) throws DatabaseException, ShipNotFoundException, BadParameterException {
 		
 		try {
+			int shipId = Integer.parseInt(stringId);
+			
 			// Before we can edit a Ship, see if the ship already exists, and if not, throw an Exception
 			if (shipDao.getShipById(shipId) == null) {
 				throw new ShipNotFoundException("Ship with id " + shipId + " was not found");
@@ -75,6 +85,8 @@ public class ShipService {
 			return editedShip;
 		} catch (SQLException e) {
 			throw new DatabaseException("Something went wrong with our DAO operations");
+		} catch (NumberFormatException e) {
+			throw new BadParameterException(stringId + " was passed in by the user as the id, " + "but it is not an int");
 		}
 
 	}

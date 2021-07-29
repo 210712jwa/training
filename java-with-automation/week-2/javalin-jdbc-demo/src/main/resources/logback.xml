@@ -16,7 +16,7 @@
 
 	<!-- Here I configure my Logger itself. 
 	By default, logback makes use of what is known as the root logger, so that is the one we will make use of -->
-	<root level="INFO">
+	<root level="DEBUG">
 		<!-- We need to configure what appenders our logger should be using -->
 		<appender-ref ref="myConsoleAppender" />
 		<appender-ref ref="myFileAppender" />
