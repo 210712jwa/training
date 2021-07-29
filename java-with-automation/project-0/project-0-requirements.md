@@ -39,7 +39,7 @@ The following endpoints and their respective verbs should support the operations
 - 3 layered architecture
     - Controller (presentation) layer
     - Service (business logic) layer
-    - Data Access layer
+    - Data Access layer (DAO aka Data Access Object layer)
 - 80-90% test coverage for the **service layer** using JUnit is required
     - Utilize Mockito in order to mock DAO dependencies
 - Logging should be accomplished using Logback
