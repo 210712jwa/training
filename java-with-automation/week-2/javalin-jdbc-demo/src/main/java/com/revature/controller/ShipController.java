@@ -50,12 +50,19 @@ public class ShipController implements Controller {
 		ctx.json(editedShip);
 	};
 	
+	private Handler deleteShip = (ctx) -> {
+		String shipId = ctx.pathParam("shipid");
+		
+		shipService.deleteShip(shipId);
+	};
+	
 	@Override
 	public void mapEndpoints(Javalin app) {
 		app.get("/ship", getAllShips);
 		app.get("/ship/:shipid", getShipById);
 		app.post("/ship", addShip);
 		app.put("/ship/:shipid", editShip);
+		app.delete("/ship/:shipid", deleteShip);
 	}
 
 }

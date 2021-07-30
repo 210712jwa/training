@@ -147,4 +147,22 @@ public class ShipDAOImpl implements ShipDAO {
 		}
 	}
 
+	@Override
+	public void deleteShip(int shipId) throws SQLException {
+	
+		try (Connection con = ConnectionUtility.getConnection()) {
+			String sql = "DELETE FROM jdbc_demo.ship WHERE id = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, shipId);
+			
+			int recordsDeleted = pstmt.executeUpdate();
+			
+			// if it is not 1, we know that no records were actually deleted
+			if (recordsDeleted != 1) {
+				throw new SQLException("Record was not able to be deleted");
+			}
+		}
+	}
+
 }

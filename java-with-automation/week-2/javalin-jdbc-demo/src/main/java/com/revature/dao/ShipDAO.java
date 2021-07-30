@@ -26,4 +26,5 @@ public interface ShipDAO {
 	
 	public abstract Ship editShip(int shipId, AddOrEditShipDTO ship) throws SQLException;
 	
+	public abstract void deleteShip(int shipId) throws SQLException;
 }

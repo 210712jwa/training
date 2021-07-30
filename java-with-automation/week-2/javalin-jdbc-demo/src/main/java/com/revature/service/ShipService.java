@@ -90,5 +90,26 @@ public class ShipService {
 		}
 
 	}
+
+	public void deleteShip(String shipId) throws BadParameterException, DatabaseException, ShipNotFoundException {
+		
+		// Check to see if the ship exists
+		try {
+			int id = Integer.parseInt(shipId);
+			
+			Ship ship = shipDao.getShipById(id);
+			if (ship == null) {
+				throw new ShipNotFoundException("Trying to delete ship with an id of " + id + ", but it does not exist");
+			}
+			
+			shipDao.deleteShip(id);
+			
+		} catch (SQLException e) {
+			throw new DatabaseException("Something went wrong with our DAO operations");
+		} catch (NumberFormatException e) {
+			throw new BadParameterException(shipId + " was passed in by the user as the id, " + "but it is not an int");
+		}
+		
+	}
 	
 }
