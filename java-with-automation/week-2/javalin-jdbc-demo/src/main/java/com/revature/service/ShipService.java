@@ -16,24 +16,31 @@ public class ShipService {
 	// ShipDAO is a dependency of ShipService
 	private ShipDAO shipDao;
 	
+	// This constructor will instantiate a REAL ShipDAO object making use of the ShipDAOImpl class
 	public ShipService() {
 		this.shipDao = new ShipDAOImpl();
+	}
+	
+	// This constructor is used to "inject" a fake ShipDAO object whenever I am instantiating a ShipService object
+	// that I want to perform unit tests on
+	public ShipService(ShipDAO mockedDaoObject) {
+		this.shipDao = mockedDaoObject;
 	}
 	
 	// This method is dependent on a ShipDAO object to function
 	// Because we're invoking the getAllShips() method from ShipDAO
 	public List<Ship> getAllShips() throws DatabaseException {
+		List<Ship> ships;
 		try {
-			List<Ship> ships = shipDao.getAllShips();
-			
-			return ships;
+			ships = shipDao.getAllShips();
 		} catch (SQLException e) {
 			throw new DatabaseException("Something went wrong with our DAO operations");
 		}
+		
+		return ships;
 	}
 	
 	public Ship getShipById(String stringId) throws DatabaseException, ShipNotFoundException, BadParameterException {
-		
 		try {
 			int id = Integer.parseInt(stringId);
 			
@@ -52,6 +59,10 @@ public class ShipService {
 	}
 	
 	public Ship addShip(AddOrEditShipDTO ship) throws DatabaseException, BadParameterException {
+		if (ship.getName().trim().equals("") && ship.getAge() < 0) {
+			throw new BadParameterException("Ship name cannot be blank and age cannot be less than 0");
+		}
+		
 		if (ship.getName().trim().equals("")) {
 			throw new BadParameterException("Ship name cannot be blank");
 		}
