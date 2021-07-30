@@ -245,4 +245,29 @@ public class ShipServiceTest {
 		}
 		
 	}
+	
+	@Test(expected = BadParameterException.class)
+	public void test_editShip_invalidId() throws DatabaseException, ShipNotFoundException, BadParameterException {
+		AddOrEditShipDTO dto = new AddOrEditShipDTO();
+		dto.setName("Black Pearl");
+		dto.setAge(100);
+		
+		shipService.editShip("abc", dto);
+	}
+	
+	@Test(expected = DatabaseException.class)
+	public void test_editShip_SQLExceptionEncountered() throws SQLException, DatabaseException, ShipNotFoundException, BadParameterException {
+		AddOrEditShipDTO dto = new AddOrEditShipDTO();
+		dto.setName("Black Pearl");
+		dto.setAge(100);
+		
+		when(shipDao.getShipById(eq(10))).thenReturn(new Ship(10, "Jolly Roger", 5));
+		when(shipDao.editShip(eq(10), eq(dto))).thenThrow(SQLException.class);
+		
+		shipService.editShip("10", dto);
+	}
+	
+	/*
+	 * Exercise: Create tests for DeleteShip and have full test coverage
+	 */
 }
