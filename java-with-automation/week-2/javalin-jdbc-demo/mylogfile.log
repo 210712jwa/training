@@ -747,3 +747,108 @@ java.util.concurrent.TimeoutException: Idle timeout expired: 30003/30000 ms
 30 Jul 2021 - 10:43:45.922 [qtp438135304-14] DEBUG o.e.jetty.server.HttpConnection - releaseRequestBuffer HttpConnection@4382daf3::SocketChannelEndPoint@db3cd96{l=0.0.0.0/0.0.0.0:7000,r=null,CLOSED,fill=-,flush=-,to=2/30000}{io=0/0,kio=-1,kro=-1}->HttpConnection@4382daf3[p=HttpParser{s=CLOSED,0 of -1},g=HttpGenerator@175a5064{s=START}]=>HttpChannelOverHttp@78f53783{s=HttpChannelState@42127316{s=IDLE rs=BLOCKING os=OPEN is=IDLE awp=false se=false i=true al=0},r=4,c=false/false,a=IDLE,uri=null,age=0}
 30 Jul 2021 - 10:43:45.922 [qtp438135304-14] DEBUG o.eclipse.jetty.io.AbstractEndPoint - shutdownOutput SocketChannelEndPoint@db3cd96{l=0.0.0.0/0.0.0.0:7000,r=null,CLOSED,fill=-,flush=-,to=2/30000}{io=0/0,kio=-1,kro=-1}->HttpConnection@4382daf3[p=HttpParser{s=CLOSED,0 of -1},g=HttpGenerator@175a5064{s=START}]=>HttpChannelOverHttp@78f53783{s=HttpChannelState@42127316{s=IDLE rs=BLOCKING os=OPEN is=IDLE awp=false se=false i=true al=0},r=4,c=false/false,a=IDLE,uri=null,age=0}
 30 Jul 2021 - 10:43:45.922 [qtp438135304-14] DEBUG o.e.jetty.server.HttpConnection - HttpConnection@4382daf3::SocketChannelEndPoint@db3cd96{l=0.0.0.0/0.0.0.0:7000,r=null,CLOSED,fill=-,flush=-,to=2/30000}{io=0/0,kio=-1,kro=-1}->HttpConnection@4382daf3[p=HttpParser{s=CLOSED,0 of -1},g=HttpGenerator@175a5064{s=START}]=>HttpChannelOverHttp@78f53783{s=HttpChannelState@42127316{s=IDLE rs=BLOCKING os=OPEN is=IDLE awp=false se=false i=true al=0},r=4,c=false/false,a=IDLE,uri=null,age=0} onFillable exit HttpChannelState@42127316{s=IDLE rs=BLOCKING os=OPEN is=IDLE awp=false se=false i=true al=0} null
+03 Aug 2021 - 16:35:30.925 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:35:30.952 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1030ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:35:30.955 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:35:31.761 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+03 Aug 2021 - 16:35:31.761 [main] INFO  io.javalin.Javalin - Javalin started in 808ms \o/
+03 Aug 2021 - 16:35:43.587 [qtp936580213-15] INFO  com.revature.app.Application - GET request received to the  endpoint
+03 Aug 2021 - 16:36:12.216 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:36:12.238 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @874ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:36:12.241 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:36:13.152 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+03 Aug 2021 - 16:36:13.152 [main] INFO  io.javalin.Javalin - Javalin started in 912ms \o/
+03 Aug 2021 - 16:36:17.811 [qtp936580213-18] INFO  com.revature.app.Application - GET request received to the /ship/5 endpoint
+03 Aug 2021 - 16:36:34.272 [qtp936580213-14] INFO  com.revature.app.Application - GET request received to the /ship endpoint
+03 Aug 2021 - 16:41:14.506 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:41:14.532 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1146ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:41:14.535 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:41:15.563 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+03 Aug 2021 - 16:41:15.563 [main] INFO  io.javalin.Javalin - Javalin started in 1030ms \o/
+03 Aug 2021 - 16:41:22.755 [qtp662736689-24] INFO  com.revature.app.Application - GET request received to the /ship/10000 endpoint
+03 Aug 2021 - 16:41:23.182 [qtp662736689-24] INFO  c.r.controller.ExceptionController - ShipNotFoundException occurred from GET /ship/10000. Message is Ship with id 10000 was not found
+03 Aug 2021 - 16:43:06.130 [qtp662736689-12] INFO  com.revature.app.Application - POST request received to the /ship endpoint
+03 Aug 2021 - 16:43:06.207 [qtp662736689-12] INFO  c.r.controller.ExceptionController - BadParameterException occurred from POST /ship. Message is Ship name cannot be blank
+03 Aug 2021 - 16:43:30.877 [qtp662736689-24] INFO  com.revature.app.Application - POST request received to the /ship endpoint
+03 Aug 2021 - 16:46:31.275 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:46:31.316 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2567ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:46:31.320 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:46:31.344 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:46:31.387 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2561ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:46:31.394 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:46:32.204 [main] ERROR io.javalin.Javalin - Failed to start Javalin
+03 Aug 2021 - 16:46:32.205 [main] INFO  io.javalin.Javalin - Stopping Javalin ...
+03 Aug 2021 - 16:46:32.243 [main] INFO  io.javalin.Javalin - Javalin has stopped
+03 Aug 2021 - 16:46:32.846 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+03 Aug 2021 - 16:46:32.847 [main] INFO  io.javalin.Javalin - Javalin started in 1529ms \o/
+03 Aug 2021 - 16:46:39.978 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:46:40.002 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1058ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:46:40.004 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:46:41.192 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+03 Aug 2021 - 16:46:41.192 [main] INFO  io.javalin.Javalin - Javalin started in 1190ms \o/
+03 Aug 2021 - 16:46:54.892 [qtp662736689-18] INFO  com.revature.app.Application - GET request received to the /ship endpoint
+03 Aug 2021 - 16:46:55.299 [qtp662736689-18] ERROR c.r.controller.ExceptionController - DatabaseException occurred from GET /ship. Message is Something went wrong with our DAO operations
+03 Aug 2021 - 16:48:47.851 [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+03 Aug 2021 - 16:48:47.881 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1035ms to org.eclipse.jetty.util.log.Slf4jLog
+03 Aug 2021 - 16:48:47.884 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 Aug 2021 - 16:48:48.730 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+03 Aug 2021 - 16:48:48.731 [main] INFO  io.javalin.Javalin - Javalin started in 848ms \o/
+03 Aug 2021 - 16:48:52.304 [qtp662736689-24] INFO  com.revature.app.Application - GET request received to the /ship endpoint
+03 Aug 2021 - 16:48:52.698 [qtp662736689-24] ERROR c.r.controller.ExceptionController - DatabaseException occurred from GET /ship. Message is Could not connect to address=(host=database-3.clwebyd8kmnl.us-east-2.rds.amazonaws.com)(port=3306)(type=master) : (conn=1842) Access denied for user 'wrongusername'@'136.49.37.214' (using password: YES)
+Current charset is windows-1252. If password has been set using other charset, consider using option 'passwordCharacterEncoding'

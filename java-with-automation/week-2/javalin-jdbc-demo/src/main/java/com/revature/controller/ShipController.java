@@ -20,7 +20,16 @@ public class ShipController implements Controller {
 		this.shipService = new ShipService();
 	}
 	
-	private Handler getAllShips = (ctx) -> {		
+	private Handler getAllShips = (ctx) -> {	
+		
+//		if (ctx.queryParam("ageLessThan")!= null && ctx.queryParam("ageMoreThan") != null) {
+//			shipService.getShipsWithAgeBetween(ctx.queryParam("ageLessThan"), ctx.queryParam("ageMoreThan"));
+//		} else if (ctx.queryParam("ageLessThan") != null) {
+//			shipService.getShipsWithAgeBetween(ctx.queryParam("ageLessThan"), "-1");
+//		} else if (ctx.queryParam("ageMoreThan") != null) {
+//			shipService.getShipsWithAgeBetween("-1", ctx.queryParam("ageMoreThan"));
+//		}
+		
 		List<Ship> ships = shipService.getAllShips();
 		
 		ctx.status(200); // 200 means OK

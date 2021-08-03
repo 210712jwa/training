@@ -3,6 +3,9 @@ package com.revature.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.dao.ShipDAO;
 import com.revature.dao.ShipDAOImpl;
 import com.revature.dto.AddOrEditShipDTO;
@@ -13,6 +16,8 @@ import com.revature.model.Ship;
 
 public class ShipService {
 
+	private Logger logger = LoggerFactory.getLogger(ShipService.class);
+	
 	// ShipDAO is a dependency of ShipService
 	private ShipDAO shipDao;
 	
@@ -34,7 +39,7 @@ public class ShipService {
 		try {
 			ships = shipDao.getAllShips();
 		} catch (SQLException e) {
-			throw new DatabaseException("Something went wrong with our DAO operations");
+			throw new DatabaseException(e.getMessage());
 		}
 		
 		return ships;
@@ -52,7 +57,7 @@ public class ShipService {
 			
 			return ship;
 		} catch (SQLException e) {
-			throw new DatabaseException("Something went wrong with our DAO operations");
+			throw new DatabaseException(e.getMessage());
 		} catch (NumberFormatException e) {
 			throw new BadParameterException(stringId + " was passed in by the user as the id, " + "but it is not an int");
 		}
@@ -76,7 +81,7 @@ public class ShipService {
 			
 			return addedShip;
 		} catch (SQLException e) {
-			throw new DatabaseException("Something went wrong with our DAO operations");
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 	
@@ -95,7 +100,7 @@ public class ShipService {
 			
 			return editedShip;
 		} catch (SQLException e) {
-			throw new DatabaseException("Something went wrong with our DAO operations");
+			throw new DatabaseException(e.getMessage());
 		} catch (NumberFormatException e) {
 			throw new BadParameterException(stringId + " was passed in by the user as the id, " + "but it is not an int");
 		}
@@ -116,10 +121,15 @@ public class ShipService {
 			shipDao.deleteShip(id);
 			
 		} catch (SQLException e) {
-			throw new DatabaseException("Something went wrong with our DAO operations");
+			throw new DatabaseException(e.getMessage());
 		} catch (NumberFormatException e) {
 			throw new BadParameterException(shipId + " was passed in by the user as the id, " + "but it is not an int");
 		}
+		
+	}
+
+	public void getShipsWithAgeBetween(int i, String queryParam) {
+		
 		
 	}
 	

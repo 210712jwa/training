@@ -18,14 +18,23 @@ public class Application {
 	public static void main(String[] args) {
 		app = Javalin.create();
 		
-		mapControllers(new TestController(), new ShipController(), new ExceptionController());
+		mapControllers(new ShipController(), new ExceptionController()); // variable arguments (var-args)
+		
+		app.before((ctx) -> {
+			logger.info(ctx.method() + " request received to the " + ctx.path() + " endpoint");
+			// GET request received to the /ship endpoint
+		});
 		
 		app.start(7000); // start up our Javalin server on port 7000
+		
 	}
 	
 	public static void mapControllers(Controller... controllers) {
 		for (Controller c : controllers) {
-			c.mapEndpoints(Application.app);
+			c.mapEndpoints(app); // Abstraction and polymorphism in action
+			// We are implementing the mapEndpoints abstract method from the Controller interface
+			// Depending on the object that the Controller c reference varible is pointing to for each iteration
+			// We will use the appropriate mapEndpoints implementation
 		}
 	}
 

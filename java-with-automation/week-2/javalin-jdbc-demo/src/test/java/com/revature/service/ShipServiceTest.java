@@ -125,6 +125,9 @@ public class ShipServiceTest {
 		}
 	}
 	
+	/*
+	 * addShip
+	 */
 	@Test
 	public void test_addShip_positivePath() throws SQLException, DatabaseException, BadParameterException {
 		
@@ -211,6 +214,10 @@ public class ShipServiceTest {
 		dto.setAge(10);
 		shipService.addShip(dto);
 	}
+	
+	/*
+	 * editShip
+	 */
 	
 	@Test
 	public void test_editShip_positivePath() throws DatabaseException, ShipNotFoundException, BadParameterException, SQLException {
