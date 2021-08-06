@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags provide some sort of metadata for our webpage
+    They could be used to indicate different keywords for search engines, or a description of the page
+    You can also provide settings that suggest to website crawlers such as Google's web crawlers that index web pages to put on their engine
+    to ignore your own page -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Webpage</title>
+
+    <!-- We can also include JavaScript files -->
+    <script src="index.js"></script>
+
+    <!-- We can include CSS as well -->
+    <!-- 3 Different ways of including CSS:
+    1. Inline using the style HTML attribute
+    2. Internally using the style tag
+    3. Externally by linking to a .css file -->
+    
+    <!-- The order of precendence for these 3 ways of including CSS are the following:
+    1. Inline will take the highest precedence
+    2. Internally w/ the style tag and externally with a .css file, will simply depend on which was the last to be interpreted -->
+
+    <style>
+        h1 {
+            color: aqua;
+        }
+    </style>
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<!-- Your HTML should go between the body tags -->
+<body>
+    <!-- Heading tags go from h1 through h6 -->
+    <h1>Styled using an inline style attribute</h1>
+    <h2>We want to style this using the style tag</h2>
+    <h3>Styled using an external .css file</h3>
+    <h4>h4 tag</h4>
+    <h5>h5 tag</h5>
+    <h6>h6 tag</h6>
+
+    <!-- paragraph -->
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, velit! Asperiores voluptas est nam aperiam esse, molestiae exercitationem adipisci ut. Vero maiores veniam, eligendi dolorem laboriosam animi est assumenda mollitia earum nostrum! Quos sapiente eveniet officia beatae dicta voluptatem eligendi sit eaque repellendus quam? Recusandae ut repellat sapiente voluptatibus provident quia corporis, ducimus est vel fuga voluptas perspiciatis, quam accusantium quidem temporibus facere porro fugit soluta, optio labore quisquam? Ducimus dicta ea voluptates id cum assumenda laudantium molestiae dolore, sunt est magni in, debitis nisi obcaecati non quam similique inventore corrupti sed natus architecto voluptatibus. Quam sapiente dolores at quasi?</p>
+
+    <!-- Horizontal Rule -->
+    <hr>
+
+    <!-- Links to other webpages -->
+    <a href="http://google.com">Go to Google</a>
+
+    <img src="https://static.turbosquid.com/Preview/001144/917/L1/cartoon-pirate-ship-3D-model_0.jpg" alt="A pirate ship">
+
+    <!-- Lists -->
+    <!-- 2 types of lists -->
+
+    <!-- Unordered Lists -->
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <!-- Ordered Lists -->
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+
+    <!-- Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Ship ID</th>
+                <th>Ship Name</th>
+                <th>Ship Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Black Pearl</td>
+                <td>101</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jolly Roger</td>
+                <td>53</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Inline v. Block elements -->
+
+    <!-- Block elements take up the entire width of the screen -->
+    <!-- You can set a width and height for a block element as well -->
+    <!-- So, block elements essentially go on individual lines -->
+    <!-- There is a new line for each block element -->
+    <div style="border: 2px solid green;">
+        This is a block element
+    </div>
+    <img src="https://static.turbosquid.com/Preview/001144/917/L1/cartoon-pirate-ship-3D-model_0.jpg" alt="A pirate ship" width="100" height="100">
+
+    <!-- Inline elements only take up as much width as is required -->
+    <!-- You also cannot change the width and height -->
+    <!-- Inline elements will go next to each other -->
+    <span style="border: 2px solid red;">
+        This is an inline element
+    </span>
+    <img src="https://static.turbosquid.com/Preview/001144/917/L1/cartoon-pirate-ship-3D-model_0.jpg" alt="A pirate ship" width="100" height="100">
+
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Forms -->
+    <form>
+        <!-- email input -->
+        <div>
+            <label for="email">Enter Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+
+        <!-- text input -->
+        <div>
+            <label for="firstname">Enter First Name:</label>
+            <input type="text" name="firstname" id="firstname">
+        </div>
+        <div>
+            <label for="lastname">Enter Last Name:</label>
+            <input type="text" name="lastname" id="lastname">
+        </div>
+
+        <!-- Number Input -->
+        <div>
+            <label for="age">Enter Age:</label>
+            <input type="number" name="age" id="age">
+        </div>
+
+        <textarea name="post" id="post" cols="100" rows="50"></textarea>
+
+        <!-- Select (dropdowns) -->
+        <div>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <!-- Explore other inputs as needed for your applications -->
+        <!-- Radio buttons -->
+        <!-- Checkboxes -->
+        <!-- etc -->
+    </form>
+</body>
+</html>
