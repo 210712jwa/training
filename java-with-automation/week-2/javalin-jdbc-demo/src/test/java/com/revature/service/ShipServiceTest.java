@@ -2,10 +2,13 @@ package com.revature.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+// You may need to type this import manually to make use of 
+// the argument matchers for Mockito, such as eq() or any()
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.mockito.ArgumentMatchers.*; // You may need to type this import manually to make use of 
-// the argument matchers for Mockito, such as eq() or any()
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,23 +17,27 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.revature.dao.PirateDAO;
 import com.revature.dao.ShipDAO;
 import com.revature.dto.AddOrEditShipDTO;
 import com.revature.exception.BadParameterException;
 import com.revature.exception.DatabaseException;
 import com.revature.exception.ShipNotFoundException;
+import com.revature.model.Pirate;
 import com.revature.model.Ship;
 
 public class ShipServiceTest {
 	
 	private ShipService shipService;
 	private ShipDAO shipDao;
+	private PirateDAO pirateDao;
 	
 	@Before
 	public void setUp() throws Exception {
 		this.shipDao = mock(ShipDAO.class); // I'm using Mockito to create a fake shipDao object
+		this.pirateDao = mock(PirateDAO.class);
 		
-		this.shipService = new ShipService(shipDao); // Here I am injecting the mocked object into a ShipService object
+		this.shipService = new ShipService(shipDao, pirateDao); // Here I am injecting the mocked object into a ShipService object
 	}
 
 	// Positive test case / "happy path"
@@ -43,13 +50,30 @@ public class ShipServiceTest {
 		mockReturnValues.add(new Ship(2, "Royal Fortune", 10));
 		when(shipDao.getAllShips()).thenReturn(mockReturnValues);
 		
+		List<Pirate> blackPearlPirates = new ArrayList<>();
+		blackPearlPirates.add(new Pirate(1, "Jack Sparrow", 28));
+		blackPearlPirates.add(new Pirate(2, "Captain Hook", 60));
+		when(pirateDao.getAllPiratesFromShip(eq(1))).thenReturn(blackPearlPirates);
+		
+		List<Pirate> royalFortunePirates = new ArrayList<>();
+		royalFortunePirates.add(new Pirate(10, "test1", 100));
+		royalFortunePirates.add(new Pirate(53, "test2", 101));
+		when(pirateDao.getAllPiratesFromShip(eq(2))).thenReturn(royalFortunePirates);
+		
 		// actual = the real data being returned by the getAllShips method from shipService
 		List<Ship> actual = shipService.getAllShips();
 		
+		System.out.println(actual);
+		
 		// expected = what we expect for the ships List to contain
 		List<Ship> expected = new ArrayList<>();
-		expected.add(new Ship(1, "Black Pearlssss", 40));
-		expected.add(new Ship(2, "Royal Fortune", 10));
+		Ship s1 = new Ship(1, "Black Pearlssss", 40);
+		s1.setPirates(blackPearlPirates);
+		Ship s2 = new Ship(2, "Royal Fortune", 10);
+		s2.setPirates(royalFortunePirates);
+		
+		expected.add(s1);
+		expected.add(s2);
 		
 		// So, we do an assertEquals, to have these two compared to each other
 		assertEquals(expected, actual);
@@ -96,6 +120,7 @@ public class ShipServiceTest {
 		Ship actual = shipService.getShipById("1");
 		
 		Ship expected = new Ship(1, "Black Pearl", 1);
+		expected.setPirates(new ArrayList<>());
 		
 		assertEquals(expected, actual);
 	}
@@ -139,7 +164,10 @@ public class ShipServiceTest {
 		
 		Ship actual = shipService.addShip(dto);
 		
-		assertEquals(new Ship(1, "Black Pearl", 10), actual);
+		Ship expected = new Ship(1, "Black Pearl", 10);
+		expected.setPirates(new ArrayList<>());
+		
+		assertEquals(expected, actual);
 	}
 	
 	@Test
@@ -233,6 +261,7 @@ public class ShipServiceTest {
 		Ship actual = shipService.editShip("10", dto);
 		
 		Ship expected = new Ship(10, "Black Pearl", 100);
+		expected.setPirates(new ArrayList<>());
 		
 		assertEquals(expected, actual);
 	}

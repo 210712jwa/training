@@ -1,10 +1,14 @@
 package com.revature.model;
 
+import java.util.List;
+
 public class Ship {
 
 	private int id;
 	private String name;
 	private int age;
+	
+	List<Pirate> pirates;
 	
 	// No-args constructor
 	public Ship() {
@@ -20,6 +24,14 @@ public class Ship {
 	}
 
 	// Getters/Setters
+	public List<Pirate> getPirates() {
+		return pirates;
+	}
+
+	public void setPirates(List<Pirate> pirates) {
+		this.pirates = pirates;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -44,7 +56,6 @@ public class Ship {
 		this.age = age;
 	}
 
-	// hashCode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -52,6 +63,7 @@ public class Ship {
 		result = prime * result + age;
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((pirates == null) ? 0 : pirates.hashCode());
 		return result;
 	}
 
@@ -73,13 +85,17 @@ public class Ship {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (pirates == null) {
+			if (other.pirates != null)
+				return false;
+		} else if (!pirates.equals(other.pirates))
+			return false;
 		return true;
 	}
 
-	// toString
 	@Override
 	public String toString() {
-		return "Ship [id=" + id + ", name=" + name + ", age=" + age + "]";
+		return "Ship [id=" + id + ", name=" + name + ", age=" + age + ", pirates=" + pirates + "]";
 	}
-	
+
 }

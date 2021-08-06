@@ -1,8 +1,11 @@
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\controller\ShipController.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\controller\Controller.java
+C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\model\Pirate.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\service\ShipService.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\controller\ExceptionController.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\exception\ShipNotFoundException.java
+C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\dao\PirateDAOImpl.java
+C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\controller\PirateController.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\dao\ShipDAO.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\exception\BadParameterException.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\dto\ExceptionMessageDTO.java
@@ -11,5 +14,7 @@ C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\dao\S
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\controller\TestController.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\exception\DatabaseException.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\dto\AddOrEditShipDTO.java
+C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\dao\PirateDAO.java
+C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\service\PirateService.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\model\Ship.java
 C:\Users\BachTran\Desktop\jwa\javalin-jdbc-demo\src\main\java\com\revature\app\Application.java

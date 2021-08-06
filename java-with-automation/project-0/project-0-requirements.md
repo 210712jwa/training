@@ -23,9 +23,9 @@ The following endpoints and their respective verbs should support the operations
 
 - `POST /clients`: Creates a new client
 - `GET /clients`: Gets all clients
-- `GET /clients/{id}`: Get client with an id of X (if the client exists)
-- `PUT /clients/{id}`: Update client with an id of X (if the client exists)
-- `DELETE /clients/{id}`: Delete client with an id of X (if the client exists)
+- `GET /clients/{client_id}`: Get client with an id of X (if the client exists)
+- `PUT /clients/{client_id}`: Update client with an id of X (if the client exists)
+- `DELETE /clients/{client_id}`: Delete client with an id of X (if the client exists)
 - `POST /clients/{client_id}/accounts`: Create a new account for a client with id of X (if client exists)
 - `GET /clients/{client_id}/accounts`: Get all accounts for client with id of X (if client exists)
 - `GET /clients/{client_id}/accounts?amountLessThan=2000&amountGreaterThan=400`: Get all accounts for client id of X with balances between 400 and 2000 (if client exists)

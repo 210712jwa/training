@@ -39,6 +39,7 @@ public class ConnectionUtility {
 		
 		// Here we actually obtain a connection object using the DriverManager getConnection() method
 		Connection connection = DriverManager.getConnection(url, username, password);
+		// DriverManager.getConnection is where all of the magic happens for connecting to the MariaDB database
 		
 		return connection;
 	}

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import com.revature.controller.Controller;
 import com.revature.controller.ExceptionController;
+import com.revature.controller.PirateController;
 import com.revature.controller.ShipController;
 import com.revature.controller.TestController;
 
@@ -18,15 +19,14 @@ public class Application {
 	public static void main(String[] args) {
 		app = Javalin.create();
 		
-		mapControllers(new ShipController(), new ExceptionController()); // variable arguments (var-args)
+		mapControllers(new ShipController(), new ExceptionController(), new PirateController()); // variable arguments (var-args)
 		
 		app.before((ctx) -> {
 			logger.info(ctx.method() + " request received to the " + ctx.path() + " endpoint");
 			// GET request received to the /ship endpoint
 		});
 		
-		app.start(7000); // start up our Javalin server on port 7000
-		
+		app.start(6000); // start up our Javalin server on port 7000
 	}
 	
 	public static void mapControllers(Controller... controllers) {
