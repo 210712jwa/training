@@ -113,6 +113,10 @@ function myFunction() {
     /* ES6 added block scope */
     // let variables and const variables are block scoped
     if (true) {
+        // var declared variables can ONLY be global scoped or function scoped
+        var a = 'some string'; // var declared variables are "hoisted" to the top of the function
+        // so a is not actually a block scoped variable, it is a function scoped variable
+
         let blockVar = 'I\'m a block scoped variable';
         const blockConst = 'I\'m a block scoped variable (constant) as well';
 
@@ -122,6 +126,8 @@ function myFunction() {
         blockVar = 'new value';
     }
 
+    a = 'new value';
+    console.log(a);
     // Because I am in strict mode, this would complain that there is no variable declared called funcitonVar
     // I mispelled the variable name intentionally
     // funcitonVar = 'Changed value of functionVar'; 
@@ -169,3 +175,17 @@ Any time the number is divisible by 5, it should be replaced with the word "Buzz
 If it is divisible by both, it should be replaced by "Fizzbuzz."
 
 */
+
+
+// The reason we have the weird behavior with var and it being hoisted either to the top of the global scope or function scope
+// is that we have this idea of function hoisting.
+// So because function hoisting is a feature in JavaScript, variable hoisting also occurred as a side-effect (artifact)
+// variable hoisting is not really useful, it's just a side effect
+// but function hoisting is useful
+
+myHoistedFunction(); // Even though myHoistedFunction is not being declared before I invoke it, it is still possible to invoke 
+// the function before declaring it because of function hoisting.
+
+function myHoistedFunction() {
+    console.log('Hi from myHoistedFunction()');
+}
