@@ -27,8 +27,9 @@ The following endpoints and their respective verbs should support the operations
 - `PUT /clients/{client_id}`: Update client with an id of X (if the client exists)
 - `DELETE /clients/{client_id}`: Delete client with an id of X (if the client exists)
 - `POST /clients/{client_id}/accounts`: Create a new account for a client with id of X (if client exists)
-- `GET /clients/{client_id}/accounts`: Get all accounts for client with id of X (if client exists)
-- `GET /clients/{client_id}/accounts?amountLessThan=2000&amountGreaterThan=400`: Get all accounts for client id of X with balances between 400 and 2000 (if client exists)
+- These two should be the same endpoint (check for query parameters using ctx.queryParam("amountLessThan") / ctx.queryParam("amountGreaterThan)):
+    - `GET /clients/{client_id}/accounts`: Get all accounts for client with id of X (if client exists)
+    - `GET /clients/{client_id}/accounts?amountLessThan=2000&amountGreaterThan=400`: Get all accounts for client id of X with balances between 400 and 2000 (if client exists)
 - `GET /clients/{client_id}/accounts/{account_id}`: Get account with id of Y belonging to client with id of X (if client and account exist AND if account belongs to client)
 - `PUT /clients/{client_id}/accounts/{account_id}`: Update account with id of Y belonging to client with id of X (if client and account exist AND if account belongs to client)
 - `DELETE /clients/{client_id}/accounts/{account_id}`: Delete account with id of Y belonging to client with id of X (if client and account exist AND if account belongs to client)
