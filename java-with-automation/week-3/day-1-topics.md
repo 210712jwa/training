@@ -24,8 +24,11 @@ Suggestions:
     - `<div>` - defines a "division of the page"
     - `<p>` - defines a paragraph
     - `<span>` - an inline tag for grouping text or elements
-    - `<b>` - bold text
-    - `<i>` - italicized text
+    - Deprecated
+      - `<b>` - bold text
+      - `<i>` - italicized text
+    - `<strong>`: has a similar effect to <b> by default
+    - `<em>`: has a similar effect to <i> by default
     - `<h1>`, `<h2>`, ... `<h6>` - these are headings, h1 is largest and h6 is smallest
     - `<br>` - line break
     - `<table>` - defines a table
@@ -117,6 +120,7 @@ Suggestions:
 - display Property
   - inline
   - block
+  - inline-block
   - none
 - position Property
   - static
