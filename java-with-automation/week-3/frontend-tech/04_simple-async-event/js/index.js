@@ -11,8 +11,12 @@ function onButtonClick(event) {
 // When the call stack is empty, the "Event Loop" will take the function
 // in the callback queue, place it into the call stack, and then it will
 // execute
-let buttonElement = document.getElementById('button');
+let buttonElement = document.getElementById('btn1');
 buttonElement.addEventListener('click', onButtonClick);
+
+/**
+ * 
+ */
 
 // Callback functions are not necessarily specific to asynchronous
 // operations like what we have above
