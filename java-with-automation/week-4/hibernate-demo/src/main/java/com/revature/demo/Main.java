@@ -2,6 +2,10 @@ package com.revature.demo;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -25,7 +29,9 @@ public class Main {
 //		modifyNameOfShip();
 		
 		// Get all pirates from ship w/ a certain id
-//		getAllPiratesFromShipId(1);
+		getAllPiratesFromShipId(1);
+		
+//		getShipById_criteriaAPIExample(1);
 	}
 
 	private static void addFirstShip() {
@@ -120,12 +126,37 @@ public class Main {
 //		Ship ship = (Ship) session.createQuery("FROM Ship s WHERE s.id = 1").getSingleResult();
 //		System.out.println(ship);
 		
-		List<Pirate> piratesFromShip = session.createQuery("SELECT p FROM Pirate p JOIN p.ship s WHERE s.id = :id")
-				.setParameter("id", id).getResultList();
+		// Instead of this, we could reference a named query instead
+//		List<Pirate> piratesFromShip = session.createQuery("SELECT p FROM Pirate p JOIN p.ship s WHERE s.id = :id")
+//				.setParameter("id", id).getResultList();
+		List<Pirate> piratesFromShip = session.getNamedQuery("getPiratesFromSpecificShip")
+				.setParameter("id", id)
+				.getResultList();
+		
 		System.out.println(piratesFromShip);
 				
 		tx.commit();
 		session.close();
 	}
+	
+	private static void getShipById_criteriaAPIExample(int id) {
+		SessionFactory sf = SessionFactorySingleton.getSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<Ship> query = builder.createQuery(Ship.class);
+		
+		Root<Ship> root = query.from(Ship.class);
+		
+		query.select(root).where(builder.equal(root.get("id"), id));
+		
+		Ship ship = session.createQuery(query).getSingleResult();
+		System.out.println(ship);
+		
+		tx.commit();
+		session.close();
+	}
+
 
 }

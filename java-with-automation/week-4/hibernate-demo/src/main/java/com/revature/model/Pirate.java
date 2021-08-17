@@ -7,8 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "getPiratesFromSpecificShip", query = "SELECT p FROM Pirate p JOIN p.ship s WHERE s.id = :id")
+})
 public class Pirate {
 
 	@Id
