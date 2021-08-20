@@ -1,0 +1,19 @@
+Project 1 Required Technologies
+- Java
+- MariaDB
+- Javalin
+- JavaScript*
+	- AJAX or fetch for HTTP requests
+- HTML*
+- CSS*
+	- Can use bootstrap
+- Logback
+- JUnit (test coverage in service layer)
+	- Utilize Mockito to mock dependencies
+
+Optional (HARD MODE)
+- Angular (Replaces the * technologies)
+
+-> You will have to figure out how to upload receipt images for your reimbursements
+Have this as a last priority, so you'll want to figure out everything else first
+before adding this on
