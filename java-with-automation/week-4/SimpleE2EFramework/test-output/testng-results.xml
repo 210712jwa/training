@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="9011" started-at="2021-08-20T15:53:37 CDT" finished-at="2021-08-20T15:53:46 CDT">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="9011" started-at="2021-08-20T15:53:37 CDT" finished-at="2021-08-20T15:53:46 CDT">
+      <class name="com.revature.tests.LoginTest">
+        <test-method status="PASS" signature="logInitial()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="logInitial" is-config="true" duration-ms="13" started-at="2021-08-20T15:53:37 CDT" finished-at="2021-08-20T15:53:37 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInitial -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="setUp" is-config="true" duration-ms="3282" started-at="2021-08-20T15:53:37 CDT" finished-at="2021-08-20T15:53:40 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login_withInvalidCredentials()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="login_withInvalidCredentials" duration-ms="1168" started-at="2021-08-20T15:53:40 CDT" finished-at="2021-08-20T15:53:41 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_withInvalidCredentials -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="tearDown" is-config="true" duration-ms="746" started-at="2021-08-20T15:53:41 CDT" finished-at="2021-08-20T15:53:42 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="setUp" is-config="true" duration-ms="1818" started-at="2021-08-20T15:53:42 CDT" finished-at="2021-08-20T15:53:44 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login_withValidCredentials()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="login_withValidCredentials" duration-ms="1188" started-at="2021-08-20T15:53:44 CDT" finished-at="2021-08-20T15:53:45 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_withValidCredentials -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="tearDown" is-config="true" duration-ms="719" started-at="2021-08-20T15:53:45 CDT" finished-at="2021-08-20T15:53:46 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="logFinal()[pri:0, instance:com.revature.tests.LoginTest@e4487af]" name="logFinal" is-config="true" duration-ms="0" started-at="2021-08-20T15:53:46 CDT" finished-at="2021-08-20T15:53:46 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logFinal -->
+      </class> <!-- com.revature.tests.LoginTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
