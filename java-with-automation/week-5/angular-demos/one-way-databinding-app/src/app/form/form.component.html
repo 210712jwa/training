@@ -1,0 +1,26 @@
+<form>
+  <div>
+    <label for="firstname" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstname" (input)="onFirstNameInput($event)">
+  </div>
+  <div>
+    <label for="lastname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastname" (input)="onLastNameInput($event)">
+  </div>
+  <div>
+    <label class="form-label">Image Link</label>
+    <input type="text" class="form-control" (input)="onImageLinkInput($event)">
+  </div>
+</form>
+
+<h1>Output (Using String Interpolation):</h1>
+<div>
+  <h2>First Name Output: {{ firstName }}</h2>
+  <h2>Last Name Output: {{ lastName }}</h2>
+</div>
+
+<h1>Output (Using property binding):</h1>
+<div>
+  <h2>Image Output:</h2>
+  <img [src]="imageLink">
+</div>
