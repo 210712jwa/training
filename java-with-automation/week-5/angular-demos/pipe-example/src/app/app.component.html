@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 [ngStyle]="{ 'visibility': formComponentShouldBeDisplayed ? 'visible' : 'hidden' }">Form Component Below:</h1>
+  <app-form (addCar)="onAddCar($event)" *ngIf="formComponentShouldBeDisplayed"></app-form>
+  <app-table [myCars]="cars"></app-table>
+
+
+  <button [ngClass]="{ 'btn': true, 'btn-danger': formComponentShouldBeDisplayed, 'btn-success': !formComponentShouldBeDisplayed, 'mt-5': true }" (click)="onToggleButtonClick()">Toggle component</button>
+</div>
+
+<hr>
+<h1>Switch Example</h1>
+<app-switch-example></app-switch-example>

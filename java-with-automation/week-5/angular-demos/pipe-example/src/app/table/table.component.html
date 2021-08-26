@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th>Top Speed (mph)</th>
+      <th>Top Speed (kph)</th>
+      <th>Top Speed (m/s)</th>
+      <th>Top Speed (ft/s)</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let car of myCars">
+    <tr>
+      <td>{{ car.make }}</td>
+      <td>{{ car.model }}</td>
+      <td>{{ car.year }}</td>
+      <td>{{ car.price | currency: 'JPY' }}</td>
+      <td>{{ car.topSpeed }}</td>
+      <td>{{ car.topSpeed | speedConversion: 'kph' }}</td>
+      <td>{{ car.topSpeed | speedConversion: 'm/s' }}</td>
+      <td>{{ car.topSpeed | speedConversion: 'ft/s' }}</td>
+    </tr>
+  </tbody>
+</table>

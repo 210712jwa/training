@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>weight</th>
+      <th>forms</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let poke of pokemon">
+    <tr>
+      <td>{{ poke.id }}</td>
+      <td>{{ poke.name }}</td>
+      <td>{{ poke.weight }}</td>
+      <td>{{ poke.forms | json }}</td>
+    </tr>
+  </tbody>
+</table>

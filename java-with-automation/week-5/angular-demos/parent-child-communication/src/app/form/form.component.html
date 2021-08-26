@@ -1,0 +1,15 @@
+<div>
+  <label class="form-label">First Name</label>
+  <input [(ngModel)]="firstNameInputValue" class="form-control" type="text" />
+</div>
+<div>
+  <label class="form-label">Last Name</label>
+  <input [(ngModel)]="lastNameInputValue" class="form-control" type="text" />
+</div>
+<div>
+  <label class="form-label">Age</label>
+  <input [(ngModel)]="ageInputvalue" class="form-control" type="number" />
+</div>
+<div>
+  <button (click)="addRecord()" class="btn btn-success mt-2">Add record</button>
+</div>

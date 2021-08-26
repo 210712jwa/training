@@ -1,0 +1,23 @@
+<div>
+  <label class="form-label">Make</label>
+  <input [(ngModel)]="makeInputValue" class="form-control" type="text" />
+</div>
+<div>
+  <label class="form-label">Model</label>
+  <input [(ngModel)]="modelInputValue" class="form-control" type="text" />
+</div>
+<div>
+  <label class="form-label">Year</label>
+  <input [(ngModel)]="yearInputvalue" class="form-control" type="number" />
+</div>
+<div>
+  <label class="form-label">Price</label>
+  <input [(ngModel)]="priceInputvalue" class="form-control" type="number" />
+</div>
+<div>
+  <label class="form-label">Top Speed (mph)</label>
+  <input [(ngModel)]="topSpeedInputvalue" class="form-control" type="number" />
+</div>
+<div>
+  <button (click)="addRecord()" class="btn btn-success mt-2">Add record</button>
+</div>
