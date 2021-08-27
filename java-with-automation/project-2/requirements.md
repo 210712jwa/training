@@ -46,7 +46,8 @@ Project 2 will be a group-based, full-stack application that you will be designi
 # Steps Each Team Should Complete
 As a team, you must
 - Decide a project idea to design and implement
-- Have a name for your project (very important for your portfolio)
+- Have a name for your project (very important for your portfolio, be creative)
+- Have a team name (be creative)
 - Have a description of the Project (very important for your portfolio)
     - Professionally worded and phrased
 - Have several user stories in the format we have described when talking about agile/scrum
@@ -57,4 +58,4 @@ Please create a document containing all of the above information and have one pe
 The sooner the above steps are completed, the sooner you can start with the project. 
 
 # Project Due Date
-Friday, May 21st, 2021
+Monday, September 13, 2021
