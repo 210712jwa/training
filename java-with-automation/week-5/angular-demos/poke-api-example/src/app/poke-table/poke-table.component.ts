@@ -13,7 +13,16 @@ export class PokeTableComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges() {
+    console.log('pokemon input property array changed in PokeTableComponent');
+  }
+
   ngOnInit(): void {
+    console.log('PokeTableComponent has been initialized');
+  }
+
+  ngOnDestroy(): void {
+    console.log('PokeTableComponent has been destroyed');
   }
 
 }

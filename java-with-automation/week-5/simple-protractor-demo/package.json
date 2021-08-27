@@ -1,0 +1,15 @@
+{
+  "name": "simple-protractor-demo",
+  "version": "1.0.0",
+  "description": "A basic demo of protractor",
+  "main": "index.js",
+  "scripts": {
+    "test": "webdriver-manager start & protractor configuration.js & webdriver-manager shutdown"
+  },
+  "author": "Bach Tran",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jasmine": "^3.8.2",
+    "protractor": "^7.0.0"
+  }
+}

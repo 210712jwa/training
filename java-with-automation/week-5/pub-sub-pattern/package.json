@@ -1,0 +1,11 @@
+{
+  "name": "pub-sub-pattern",
+  "version": "1.0.0",
+  "description": "A project to demonstrate the pub-sub design pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bach Tran",
+  "license": "ISC"
+}

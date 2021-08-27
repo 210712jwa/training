@@ -1,0 +1,23 @@
+<div class="container">
+  <div>
+    <label>Pokemon ID:</label>
+    <input [(ngModel)]="pokemonIdInput" type="number"/>
+  </div>
+  <div>
+    <button (click)="onGetPokemonClick()">Get Pokemon</button>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-6">
+        <app-latest-poke></app-latest-poke>
+      </div>
+      <div class="column is-6">
+        <app-poke-table></app-poke-table>
+      </div>
+    </div>
+  </div>
+</section>
+

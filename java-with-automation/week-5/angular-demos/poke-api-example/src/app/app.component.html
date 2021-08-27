@@ -1,2 +1,4 @@
 <app-poke-search (search)="onSearch($event)"></app-poke-search>
-<app-poke-table [pokemon]="pokemon"></app-poke-table>
+<app-poke-table *ngIf="showPokeTableComponent" [pokemon]="pokemonArr"></app-poke-table>
+
+<button (click)="showPokeTableComponent = !showPokeTableComponent">Toggle PokeTableComponent</button>
