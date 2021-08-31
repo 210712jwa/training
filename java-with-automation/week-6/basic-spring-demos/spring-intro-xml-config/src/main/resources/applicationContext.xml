@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- A spring bean is an object that Spring Framework instantiates and manages for us -->
+	<!-- Spring beans are stored in an inversion of control (IoC) container -->
+	<!-- Here we provide configurations for what beans we want inside of our container -->
+	<bean id="myShipDao" class="com.revature.dao.FakeShipDao">
+	</bean>
+	
+	<!-- <bean id="myHibernateShipDao" class="com.revature.dao.HibernateShipDao">
+	</bean> -->
+	
+	<!-- We want a ShipService bean, so we specify that right here -->
+	<bean id="myShipService" class="com.revature.service.ShipServiceImpl">
+	
+		<!-- Since ShipServiceImpl depends on ShipDao, we need to specify a bean to be provided to this bean here -->
+		<!-- This constructor-arg tag is specifying what bean we want to "inject" into the constructor -->
+		<!-- ** Constructor Injection ** -->
+		<constructor-arg ref="myShipDao" />
+		
+		<!-- primitive constructor injection -->
+		<constructor-arg value="my string" />
+		
+		<!-- primitive setter injection -->
+		<property name="someIntPrimitive" value="${shipservice.myInt}" />
+	</bean>
+	
+	<!-- We want a ShipController bean, so we speciify that right here -->
+	<bean id="myShipController" class="com.revature.controller.FakeShipController">
+		
+		<!-- ** Setter injection ** -->
+		<property name="shipService" ref="myShipService" />
+	</bean>
+	
+	<context:property-placeholder location="classpath:myproperties.properties" />
+</beans>
