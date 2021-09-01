@@ -202,3 +202,28 @@ public class BeanA {
 ```
 
 - `@Qualifier` annotation: if we have more than one bean of a particular type, and we use `@Autowired`, Spring would not know which one to inject. So we could use this annotation to distinguish between beans of the same type by name.
+
+# Spring Bean Lifecycle
+Similar to what we saw in Angular w/ the component lifecycle and lifecycle hooks, we also have a lifecycle for beans, and lifecycle hooks for beans in Spring
+
+## Initialization
+0. Request Bean from ApplicationContext
+    - Instantiation
+    - Populate Properties
+1. BeanNameAware's setBeanName() method
+2. BeanClassLoaderAware's setBeanClassLoader() method
+3. BeanFactoryAware's setBeanFactory() method
+4. EnvironmentAware's setEnvironment() method
+5. BeanPostProcessor's postProcessBeforeInitialization() method
+6. InitializingBean's afterPropertiesSet() method
+7. Custom init method
+    - Init method in our configuration (applicationContext.xml)
+    - @PostConstruct annotation
+8. BeanPostProcessor's postProcessAfterInitialization() method
+
+## On Shutdown of ApplicationContext
+1. DestructionAwareBeanPostProcessor's postProcessBeforeDestruction() method
+2. DisposableBean's destroy() method
+3. Custom destroy method
+    - Destroy method specified in our configuration (applicationContext.xml)
+    - @PreDestroy annotation
