@@ -1,0 +1,150 @@
+# Spring Study Guide
+- Spring
+    - Spring Modules
+        - "Core Container"
+            - Spring Core (module)
+            - Spring Beans (module)
+            - Spring Context (module)
+            - These form the base standard DI features
+        - Spring AOP
+        - Spring MVC
+        - Spring Test
+    - Spring Beans
+        - Stereotype Annotations
+            - `@Component` for general Spring beans
+            - `@Controller` for controller layer beans w/ Spring MVC
+                - `@RestController`: implicitly adds `@RequestBody` to each method
+                    - @RequestBody tells Spring MVC to convert the return type to JSON instead of attempting to contact a "view resolver"
+            - `@Service` for Spring beans in the service layer
+            - `@Repository` for Spring beans in the dao layer
+    - Dependency Injection
+    - Inversion of Control
+        - IoC container
+            - Contains Spring beans
+            - BeanFactory
+                - Older version
+                - Lazily instantiates beans
+                - `bean.xml`
+            - ApplicationContext
+                - Newer, more modern version
+                - Eagerly instantiates beans
+                - `applicationContext.xml`
+    - Configuration
+        - XML Configuration
+        - Annotation-based configuration (Component scan)
+            - `@Service`, `@Component`, `@Repository`, `@Controller`
+            - `@Autowired`  
+        - Class based configuration
+            - `@Configuration` specifies the class to be used for configuring Spring beans
+            - `@Bean` specifies the method used to configure a bean
+                - Look back at our example on the Spring ORM configuration class
+        - Autowiring
+            - byName
+            - byType
+                - `@Qualifier` annotation to distinguish between multiple beans that have the same type
+            - byType is the default
+    - Spring Bean Lifecycle
+        - Lots of different parts
+        - Study closely based on the notes we have in [spring-notes.md](spring-notes.md)
+    - Bean Scopes
+        - Singleton (default)
+        - Prototype
+        - Web-aware scopes (available if our ApplicationContext is a WebApplicationContext)
+            - In the context of Spring MVC, this is the case
+            - Scopes:
+                - Request
+                - Session
+                - Application
+                - WebSocket
+            - Important to understand, because as you saw, we could autowire HttpServletRequest, which is a bean specific to every request
+    - Injection Types
+        - Constructor injection
+        - Setter injection
+        - Field injection
+            - Field injection is specific to using the `@Autowired` annotation
+            - Constructor and setter injection can be used with ANY type of configuration (xml, class, or @Autowired)
+- Spring MVC
+    - Important Component
+        - DispatcherServlet (configured in web.xml, which is Tomcat's deployment descriptor)
+    - Flow of MVC architecture
+        - DispatcherServlet -> HandlerMapping -> ViewResolver (if needed)
+        - In our case, no ViewResolver is required because we're not making use of the V in MVC. Instead our V is the Angular application that receives JSON data from the backend
+- Spring AOP
+    - Aspect Oriented Programming
+    - Deals with "Aspects" that are "Cross Cutting Concerns"
+        - "Cross Cutting Concern": something that is utilized throughout an entire application, not just a single method, class, package, etc.
+    - Examples of cross-cutting concerns:
+        - Logging
+        - Security
+        - Caching
+        - Validation
+        - Performance Analysis
+    - Terminologies
+        - Aspect: a class that contains different "advice"
+            - An aspect should contain logic specific to a certain cross cutting concern
+            - LoggingAspect, SecurityAspect, etc.
+        - Advice: What is actually happening when we intercept a join point
+            - @Before
+            - @After
+            - @AfterReturning
+            - @AfterThrowing
+            - @Around
+                - The most powerful
+                - Wraps around the entire join point
+                - Can prevent execution of a method
+                - ex. We used it for security of endpoint methods in the demo
+        - Join point:
+            - What actually is getting "intercepted"
+            - Will be some sort of method that is being executed
+        - Point cut:
+            - An expression that indicates what the join point actually is for a particular advice
+            - `execution(...)`
+            - `@annotation(...)`
+    - `@ControllerAdvice`
+        - Allows us to quickly create aspects for the controller layer
+        - You could use `@ExceptionHandler` to handle exceptions instead of directly inside the controller methods
+- Spring Boot & Spring Data
+    - Spring Boot
+        - `Convention over configuration`
+        - Goal is have developers up and running with minimal configuration
+        - Benefits
+            - Embedded Tomcat server
+                - This means we don't have to deploy the application on some server like we do traditionally with a .war file
+            - Starter Dependencies
+            - `application.properties` file
+                - No more XML configuration
+        - `@SpringBootApplication`
+            - Implicitly provides
+                - `@Configuration`
+                - `@EnableAutoConfiguration`
+                - `@ComponentScan`
+    - Spring Data JPA
+        - Abstracts away the persistence layer even more than Hibernate
+        - Effectively builds the repository implementation for us
+        - We just need to provide method names that conform to a particular standard
+        - API
+            - CrudRepository
+                - PagingAndSortingRepository
+                    - JpaRepository
+        - Supports JPA annotations
+        - `@Query` annotaiton to write custom queries
+            - Utilizes JPQL, Java Persistence Query Language
+            - Similar to HQL, but not actually the same
+                - pretty similar though
+        - `@Transactional`
+            - We saw this with Spring ORM as well
+            - Gives support for transaction propagation rules
+            - Go to Spring ORM notes for details
+    - Spring Testing
+        - Introduces MockMvc
+        - Allows us to mock HTTP requests and test for information in the responses
+        - Provides the ability to perform integration testing by configuring contexts with the controller, service, dao layers, and all other dependencies fully wired up
+        - We can build both unit and integration tests depending on our class configuration
+        - Use `MockMvcBuilders.standaloneSetup` for creating controller unit tests and by also mocking any dependencies with Mockito
+        - Use `MockMvcBuilders.webContextSetup` when we want to perform integration tests using an entire `WebApplicationContext` wired up with all of our dependencies
+            - We would need to provide the ContextConfigurations and add the `@WebAppConfiguration` annotation
+            - Refer to the testing demos for examples
+        - Tests in Spring Boot applications utilize JUnit 5 instead of 4
+            - JUnit 5 = Jupiter
+            - We also utilizes JUnit 5 in our testing demo
+
