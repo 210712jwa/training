@@ -147,4 +147,3 @@
         - Tests in Spring Boot applications utilize JUnit 5 instead of 4
             - JUnit 5 = Jupiter
             - We also utilizes JUnit 5 in our testing demo
-
