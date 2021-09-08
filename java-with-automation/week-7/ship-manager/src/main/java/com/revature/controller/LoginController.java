@@ -18,7 +18,7 @@ import com.revature.model.User;
 import com.revature.service.AuthenticationService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4201", allowCredentials = "true")
+@CrossOrigin(origins = { "http://localhost:4201", "http://ec2-18-225-36-88.us-east-2.compute.amazonaws.com:8080" }, allowCredentials = "true")
 public class LoginController {
 
 	@Autowired
@@ -63,6 +63,18 @@ public class LoginController {
 		User user = (User) session.getAttribute("currentUser");
 		return ResponseEntity.status(200).body(user);
 		
+	}
+	
+	@PostMapping(path = "/logout")
+	public ResponseEntity<Object> logout() {
+		HttpSession session = request.getSession(false);
+		
+		if (session == null || session.getAttribute("currentUser") == null) {
+			return ResponseEntity.status(400).body(new MessageDto("You are not logged in!"));
+		}
+		
+		session.invalidate(); // invalidate the session
+		return ResponseEntity.status(200).body(new MessageDto("Successfully logged out"));
 	}
 
 }

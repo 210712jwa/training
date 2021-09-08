@@ -20,7 +20,7 @@ import com.revature.model.Ship;
 import com.revature.service.ShipService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4201", allowCredentials = "true") // Whenever our browser makes a request
+@CrossOrigin(origins = { "http://localhost:4201", "http://ec2-18-225-36-88.us-east-2.compute.amazonaws.com:8080" }, allowCredentials = "true") // Whenever our browser makes a request
 // to the backend, this annotation is what the backend will use to tell the browser
 // that the source of the JavaScript code that is sending the request to the backend
 // is a "trusted" source

@@ -1,0 +1,14 @@
+<form>
+  <div>
+    <label for="username">Username:</label>
+    <input [(ngModel)]="username" type="text" name="username">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input [(ngModel)]="password" type="text" name="password">
+  </div>
+  <div>
+    <button (click)="login()">Login</button>
+  </div>
+  <p id="error-message" *ngIf="showErrorMessage">{{ errorMessage }}</p>
+</form>

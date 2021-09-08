@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>shipName</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let ship of ships">
+      <tr>
+        <td>{{ ship.id }}</td>
+        <td>{{ ship.shipName }}</td>
+        <td>{{ ship.age }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<div>
+  <button (click)="logout()">logout</button>
+</div>
