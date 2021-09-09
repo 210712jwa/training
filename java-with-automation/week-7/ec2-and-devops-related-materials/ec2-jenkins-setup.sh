@@ -21,10 +21,12 @@ tar -zxvf apache-tomcat-9.0.52.tar.gz
 # You can't have two different processes listening to the same port
 
 # jenkins setup
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
-sudo rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
+sudo amazon-linux-extras install epel -y
+sudo yum update -y
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 sudo yum install -y jenkins
-usermod -aG sudo jenkins # To allow jenkins to use sudo
 
 # start jenkins (MAKE SURE to change Tomcat to a different port first!)
 # sudo service jenkins start
