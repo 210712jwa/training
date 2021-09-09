@@ -1,9 +1,15 @@
 #!/bin/bash
 
-# basics
+# === Installation ===
+# java
 sudo yum install java-1.8.0-openjdk-devel -y
 
-sudo yum install maven -y
+# maven
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+
+# git
 sudo yum install git -y
 
 # tomcat setup
@@ -18,7 +24,8 @@ tar -zxvf apache-tomcat-9.0.52.tar.gz
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 sudo rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
 sudo yum install -y jenkins
+usermod -aG sudo jenkins # To allow jenkins to use sudo
 
-# start jenkins
-sudo service jenkins start
+# start jenkins (MAKE SURE to change Tomcat to a different port first!)
+# sudo service jenkins start
 
