@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,11 @@ import com.revature.dto.LoginDTO;
 import com.revature.dto.MessageDto;
 import com.revature.model.User;
 import com.revature.service.AuthenticationService;
+import com.revature.utility.LoginCookieUtility;
 
 @RestController
-@CrossOrigin(origins = { "http://localhost:4201", "http://ec2-18-188-206-162.us-east-2.compute.amazonaws.com:8081" }, allowCredentials = "true")
+//@CrossOrigin(origins = { "http://localhost:4201", "http://127.0.0.1:4201", "http://ec2-18-188-206-162.us-east-2.compute.amazonaws.com:8081" }, allowCredentials = "true")
+@CrossOrigin(originPatterns = "*", allowCredentials = "true")
 public class LoginController {
 
 	@Autowired
@@ -26,6 +29,9 @@ public class LoginController {
 	
 	@Autowired
 	private HttpServletRequest request;
+	
+	@Autowired
+	private HttpServletResponse response;
 	
 	@PostMapping(path = "/login")
 	public ResponseEntity<Object> login(@RequestBody LoginDTO loginDto) {
@@ -43,6 +49,7 @@ public class LoginController {
 			
 			session.setAttribute("currentUser", user);
 
+			LoginCookieUtility.modifyCookieInfo(response);
 			
 			return ResponseEntity.status(200).body(user);
 		} catch (LoginException e) {
