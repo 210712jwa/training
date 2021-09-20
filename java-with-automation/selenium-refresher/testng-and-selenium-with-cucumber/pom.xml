@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.revature</groupId>
-	<artifactId>testng-setup</artifactId>
+	<artifactId>testng-and-selenium-with-cucumber</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -23,6 +23,18 @@
 			<artifactId>testng</artifactId>
 			<version>7.4.0</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>6.11.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>6.11.0</version>
 		</dependency>
 
 	</dependencies>
